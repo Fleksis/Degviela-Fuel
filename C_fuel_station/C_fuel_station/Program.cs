@@ -2,6 +2,11 @@ using System;
 
 namespace C_fuel_station {
     class Program {
+        static public void Any_key() {
+            Console.Write("Press any key to continue...");
+            Console.ReadKey();
+        }
+
         public static void Main(string[] args) {
             double gasolinePrice = 1.5;
             double dieselPrice = 1.1;
@@ -32,8 +37,8 @@ namespace C_fuel_station {
             Console.Write($"How much fill fuel of {fuelType}: ");
             double fuelAmount = Convert.ToDouble(Console.ReadLine());
 
-            Console.ReadKey();
-            Console.Clear();
+            Any_key();
+            //Console.Clear();
 
             Gasoline gasoline = new Gasoline("Gasoline", fuelAmount, ref gasolinePrice, userGasoline);
             Diesel diesel = new Diesel("Diesel", fuelAmount, ref dieselPrice, userDiesel);
@@ -54,13 +59,15 @@ namespace C_fuel_station {
             }
             fuelObj.Fuel_Status(ref PriceDiesel);
 
+            Any_key();
+
             if (gasoline.UserFuelType == true) {
                 gasoline.Difference(ref PriceGasoline, ref PriceDiesel);
             } else if (diesel.UserFuelType == true) {
                 diesel.Difference(ref PriceGasoline, ref PriceDiesel);
             }
 
-            Console.ReadKey();
+            Any_key();
         }
     }
 }

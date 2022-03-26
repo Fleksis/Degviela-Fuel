@@ -4,7 +4,8 @@ namespace C_fuel_station {
     class Gasoline : FuelStation {
         public Gasoline(string fuelName, double fuelAmount, ref double pricePerLiter, bool userFuelType = false) : base() {
             this.FuelName = fuelName;
-            this.BaseFuelAmount = 282;
+            Random rnd = new Random();
+            this.BaseFuelAmount = rnd.Next(300);
             this.FuelAmount = fuelAmount;
             this.PricePerLiter = pricePerLiter;
             this.UserFuelType = userFuelType;
@@ -16,7 +17,9 @@ namespace C_fuel_station {
             Console.WriteLine($"Station fuel amount: {this.BaseFuelAmount} Liters");
             Console.WriteLine($"Fill amount: {this.FuelAmount} Liters");
             Console.WriteLine($"Fuel price per liter: {this.PricePerLiter}EUR\n");
+
             Price = this.FuelAmount * this.PricePerLiter;
+
             Console.WriteLine($"Fuel price is: {Price}EUR");
             Console.WriteLine("-==========================================-\n");
         }
@@ -24,9 +27,12 @@ namespace C_fuel_station {
         public override void Difference(ref double PriceGasoline, ref double PriceDiesel) {
             Console.WriteLine("-============== Order difference with other fuel type ==============-");
             Console.WriteLine("Compared fuel types (Diesel and Gasoline)");
-            Console.WriteLine($"Difference: {PriceGasoline - PriceDiesel}");
 
+            if (PriceDiesel >= PriceGasoline) {
+                Console.WriteLine($"You save with diesel: {PriceGasoline - PriceDiesel}EUR");
+            } else {
+                Console.WriteLine($"You may save with gasoline: {PriceDiesel -  PriceGasoline}EUR");
+            }
         }
-
     }
 }
