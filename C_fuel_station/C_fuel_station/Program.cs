@@ -23,12 +23,12 @@ namespace C_fuel_station {
             if (fuelType == "gasoline") {
                 userGasoline = true;
                 Gasoline gasolineSample = new Gasoline("Gasoline", ref stationFuelAmount, 0, ref gasolinePrice, userGasoline);
-                gasolineSample.Fuel_Status(ref PriceGasoline);
+                gasolineSample.Station_order(ref PriceGasoline);
                 gasolineSample = null;
             } else if (fuelType == "diesel") {
                 userDiesel = true;
                 Diesel dieselSample = new Diesel("Diesel", ref stationFuelAmount, 0, ref dieselPrice, userDiesel);
-                dieselSample.Fuel_Status(ref PriceDiesel);
+                dieselSample.Station_order(ref PriceDiesel);
                 dieselSample = null;
                
             } else {
@@ -40,7 +40,6 @@ namespace C_fuel_station {
             double fuelAmount = Convert.ToDouble(Console.ReadLine());
 
             Any_key();
-            //Console.Clear();
 
             Gasoline gasoline = new Gasoline("Gasoline", ref stationFuelAmount, fuelAmount, ref gasolinePrice, userGasoline);
             Diesel diesel = new Diesel("Diesel", ref stationFuelAmount, fuelAmount, ref dieselPrice, userDiesel);
@@ -49,27 +48,32 @@ namespace C_fuel_station {
             FuelStation fuelObj;
 
             fuelObj = gasoline;
-            bool fuelable = fuelObj.Is_fuelable();
-            if (fuelable == false && userGasoline == true) {
+            if (fuelObj.Is_fuelable() == false && userGasoline == true) {
                 return;
             }
-            fuelObj.Fuel_Status(ref PriceGasoline);
+            fuelObj.Station_order(ref PriceGasoline);
 
             fuelObj = diesel;
             if (fuelObj.Is_fuelable() == false && userDiesel == true) {
                 return;
             }
-            fuelObj.Fuel_Status(ref PriceDiesel);
+            fuelObj.Station_order(ref PriceDiesel);
 
             Any_key();
+            Console.Clear();
 
-            if (gasoline.UserFuelType == true) {
+            if (gasoline.IsOrder == true) {
+                gasoline.Receipt(ref PriceGasoline);
+                Any_key();
                 gasoline.Difference(ref PriceGasoline, ref PriceDiesel);
-            } else if (diesel.UserFuelType == true) {
+            } else if (diesel.IsOrder == true) {
+                diesel.Receipt(ref PriceDiesel);
+                Any_key();
                 diesel.Difference(ref PriceGasoline, ref PriceDiesel);
             }
 
             Any_key();
+            Console.Clear();
         }
     }
 }

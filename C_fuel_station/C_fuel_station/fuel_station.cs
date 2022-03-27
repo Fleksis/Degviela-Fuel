@@ -2,27 +2,29 @@
 
 namespace C_fuel_station {
     abstract class FuelStation {
-        protected string FuelName;
+        protected string FuelType;
         protected double StationFuelAmount;
         protected double FuelAmount;
         protected double PricePerLiter;
-        public bool UserFuelType;
+        public bool IsOrder;
 
-        abstract public void Fuel_Status(ref double Price);
+        abstract public void Station_order(ref double Price);
         abstract public void Difference(ref double PriceGasoline, ref double PriceDiesel);
+        abstract public void Receipt(ref double Price);
 
         public void Choice() {
-            if (this.UserFuelType == true) {
-                Console.WriteLine("-============== Your order ==============-");
-            }
-            else {
-                Console.WriteLine("-============== Other order ==============-");
+            if (this.IsOrder == true) {
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine("-=============================== Your order ===============================-");
+            } else {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("-=============================== Other order ===============================-");
             }
         }
 
         public bool Is_fuelable() {
             if (this.FuelAmount > this.StationFuelAmount) {
-                Console.WriteLine("Not enough fuel in station!");
+                Console.WriteLine("Not enough fuel in station! ");
                 Console.ReadKey();
                 return false;
             } else if (this.StationFuelAmount < 50) {
