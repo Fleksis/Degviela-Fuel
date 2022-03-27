@@ -5,3 +5,10 @@ C:\Users\Fleksis\source\repos\C_fuel_station\C_fuel_station\obj\Debug\C_fuel_sta
 C:\Users\Fleksis\source\repos\C_fuel_station\C_fuel_station\obj\Debug\C_fuel_station.csproj.CoreCompileInputs.cache
 C:\Users\Fleksis\source\repos\C_fuel_station\C_fuel_station\obj\Debug\C_fuel_station.exe
 C:\Users\Fleksis\source\repos\C_fuel_station\C_fuel_station\obj\Debug\C_fuel_station.pdb
+C:\Users\marku\Desktop\Programm\Degviela-Fuel\C_fuel_station\C_fuel_station\obj\Debug\C_fuel_station.exe
+C:\Users\marku\Desktop\Programm\Degviela-Fuel\C_fuel_station\C_fuel_station\obj\Debug\C_fuel_station.pdb
+C:\Users\marku\Desktop\Programm\Degviela-Fuel\C_fuel_station\C_fuel_station\bin\Debug\C_fuel_station.exe.config
+C:\Users\marku\Desktop\Programm\Degviela-Fuel\C_fuel_station\C_fuel_station\bin\Debug\C_fuel_station.exe
+C:\Users\marku\Desktop\Programm\Degviela-Fuel\C_fuel_station\C_fuel_station\bin\Debug\C_fuel_station.pdb
+C:\Users\marku\Desktop\Programm\Degviela-Fuel\C_fuel_station\C_fuel_station\obj\Debug\C_fuel_station.csprojAssemblyReference.cache
+C:\Users\marku\Desktop\Programm\Degviela-Fuel\C_fuel_station\C_fuel_station\obj\Debug\C_fuel_station.csproj.CoreCompileInputs.cache

@@ -3,7 +3,7 @@
 namespace C_fuel_station {
     abstract class FuelStation {
         protected string FuelName;
-        protected double BaseFuelAmount;
+        protected double StationFuelAmount;
         protected double FuelAmount;
         protected double PricePerLiter;
         public bool UserFuelType;
@@ -21,8 +21,13 @@ namespace C_fuel_station {
         }
 
         public bool Is_fuelable() {
-            if (this.FuelAmount > this.BaseFuelAmount) {
+            if (this.FuelAmount > this.StationFuelAmount) {
                 Console.WriteLine("Not enough fuel in station!");
+                Console.ReadKey();
+                return false;
+            } else if (this.StationFuelAmount < 50) {
+                Console.WriteLine("Station fuel is almost empty, wait till it will filled.");
+                Console.ReadKey();
                 return false;
             } else {
                 return true;

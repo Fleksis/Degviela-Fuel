@@ -10,6 +10,8 @@ namespace C_fuel_station {
         public static void Main(string[] args) {
             double gasolinePrice = 1.5;
             double dieselPrice = 1.1;
+            Random rnd = new Random();
+            int stationFuelAmount = rnd.Next(300);
             bool userGasoline = false;
             bool userDiesel = false;
 
@@ -20,12 +22,12 @@ namespace C_fuel_station {
             string fuelType = Console.ReadLine().ToLower();
             if (fuelType == "gasoline") {
                 userGasoline = true;
-                Gasoline gasolineSample = new Gasoline("Gasoline", 0, ref gasolinePrice, userGasoline);
+                Gasoline gasolineSample = new Gasoline("Gasoline", ref stationFuelAmount, 0, ref gasolinePrice, userGasoline);
                 gasolineSample.Fuel_Status(ref PriceGasoline);
                 gasolineSample = null;
             } else if (fuelType == "diesel") {
                 userDiesel = true;
-                Diesel dieselSample = new Diesel("Diesel", 0, ref dieselPrice, userDiesel);
+                Diesel dieselSample = new Diesel("Diesel", ref stationFuelAmount, 0, ref dieselPrice, userDiesel);
                 dieselSample.Fuel_Status(ref PriceDiesel);
                 dieselSample = null;
                
@@ -40,8 +42,8 @@ namespace C_fuel_station {
             Any_key();
             //Console.Clear();
 
-            Gasoline gasoline = new Gasoline("Gasoline", fuelAmount, ref gasolinePrice, userGasoline);
-            Diesel diesel = new Diesel("Diesel", fuelAmount, ref dieselPrice, userDiesel);
+            Gasoline gasoline = new Gasoline("Gasoline", ref stationFuelAmount, fuelAmount, ref gasolinePrice, userGasoline);
+            Diesel diesel = new Diesel("Diesel", ref stationFuelAmount, fuelAmount, ref dieselPrice, userDiesel);
 
             
             FuelStation fuelObj;
